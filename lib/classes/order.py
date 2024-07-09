@@ -21,3 +21,27 @@ class Order:
             self._price = val
         else:
             raise Exception("invalid price")
+        
+    @property
+    def customer(self):
+        return self._customer
+    
+    @customer.setter
+    def customer(self, val):
+        from classes.customer import Customer
+        if isinstance(val, Customer):
+            self._customer = val
+        else:
+            raise Exception("invalid customer")
+    
+    @property
+    def coffee(self):
+        return self._coffee
+    
+    @coffee.setter
+    def coffee(self, val):
+        from classes.coffee import Coffee
+        if isinstance(val, Coffee):
+            self._coffee = val
+        else:
+            raise Exception("invalid coffee")

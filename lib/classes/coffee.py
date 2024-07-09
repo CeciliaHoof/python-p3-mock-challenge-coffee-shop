@@ -15,11 +15,11 @@ class Coffee:
             
     def orders(self, new_order=None):
         from classes.order import Order
-        pass
+        return [order for order in Order.all if order.coffee == self]
     
     def customers(self, new_customer=None):
         from classes.customer import Customer
-        pass
+        return list(set(order.customer for order in self.orders()))
     
     def num_orders(self):
         pass

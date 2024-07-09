@@ -15,8 +15,11 @@ class Customer:
         
     def orders(self, new_order=None):
         from classes.order import Order
-        pass
+        return [order for order in Order.all if order.customer == self]
     
     def coffees(self, new_coffee=None):
-        from classes.coffee import Coffee
-        pass
+        return set(list(order.coffee for order in self.orders()))
+    
+    def create_order(self, coffee, price):
+        from classes.order import Order
+        Order(self, coffee, price)
