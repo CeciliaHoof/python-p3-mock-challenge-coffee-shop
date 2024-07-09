@@ -1,28 +1,17 @@
 class Coffee:
     def __init__(self, name):
         self.name = name
-    
-    @property
-    def name(self):
-        return self._name
-    
-    @name.setter
-    def name(self, new_name):
-        if type(new_name) == str and not hasattr(self, "name"):
-            self._name = new_name
-        else:
-            raise Exception
         
     def orders(self, new_order=None):
         from classes.order import Order
-        return [order for order in Order.all if order.coffee == self]
+        pass
     
-    def customers(self): #new_customer=None):
-        # from classes.customer import Customer
-        return list(set([order.customer for order in self.orders()]))
+    def customers(self, new_customer=None):
+        from classes.customer import Customer
+        pass
     
     def num_orders(self):
-        return len(self.orders())
+        pass
     
     def average_price(self):
-        return sum([order.price for order in self.orders()]) / len(self.orders())
+        pass
