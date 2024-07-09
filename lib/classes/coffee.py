@@ -1,4 +1,5 @@
 class Coffee:
+
     def __init__(self, name):
         self.name = name
     
@@ -22,7 +23,8 @@ class Coffee:
         return list(set(order.customer for order in self.orders()))
     
     def num_orders(self):
-        pass
+        return len(self.orders())
     
     def average_price(self):
-        pass
+        prices = [order.price for order in self.orders()]
+        return sum(prices) / self.num_orders()
